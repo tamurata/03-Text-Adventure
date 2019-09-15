@@ -29,7 +29,7 @@ logger = logging.getLogger(__name__)
 
 def render(game,current):
     '''Display the current location'''
-    print('you are at the' + game['rooms'][current]['game'])
+    print('you are at the' + game['rooms'][current]['name'])
     print(game['rooms'][current]['desc'])
     return True
 
