@@ -1,4 +1,4 @@
-import sys, logging, json
+import sys, logging, json, random
 
 #check to make sure we are running the right version of Python
 version = (3,7)
@@ -36,15 +36,16 @@ def render(game,current):
 def update(game,current,response):
     '''update our location, if possible, etc. '''
     for e in game['rooms'][current]['exits']:
-        if response == e['verb']:
-            current = e['target']
+        if e['condition'] == '' or e['condition'] == weapon:
+            if response == e['verb']:
+                current = e['target']
     
     return current
 
 
 def check_input():
     '''get user input'''
-    response = input('What would you like to do?').upper()
+    response = input('Do you want to run away or kill the monster? \nShow me your braveness.').upper().strip()
     return response
 
 
@@ -55,16 +56,24 @@ def main():
         game = json.load(json_file)
     # Your game goes here!
 
-    current = 'WHOUS'
+    current = 'CAVE'
+    ending = ['OUT FROM THE GAME','Castle']
 
     quit = False
+    
+    weapons = ['sword', 'hummer', 'gun', 'wood stick']
+    weapon = random.choice(weapons)
+
     while not quit:
         #render
         render(game,current)
         #check player input
         response = check_input()
         #update
-        current = update(game,current,response)
+        current = update(game,current,response,weapon)
+        if current in ending:
+            quit == True
+    
     
 
 
