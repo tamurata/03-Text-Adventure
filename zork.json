@@ -4,24 +4,14 @@
     { "v": "RUN AWAY", "map": "QUIT" },
     { "v": "R", "map": "QUIT" },
     { "v": "RUN", "map": "QUIT" },
-    { "v": "KILL", "map": "NRoom" },
-    { "v": "K", "map": "NRoom" },
-    { "v": "KILL", "map": "SRoom" },
-    { "v": "K", "map": "SRoom" },
-    { "v": "KILL", "map": "ERoom" },
-    { "v": "K", "map": "ERoom" },
-    { "v": "KILL", "map": "WRoom" },
-    { "v": "K", "map": "WRoom" },
-    { "v": "KILL", "map": "Goal"},
-    { "v": "K", "map": "Goal"},
-    { "v": "KILL", "map": "Cave" },
-    { "v": "K", "map": "Cave" },
-    { "v": "BRAVE", "map": "OUT FROM THIS GAME" },
-    { "v": "B", "map": "OUT FROM THIS GAME" }
+    { "v": "KILL", "map": "KILL" },
+    { "v": "K", "map": "KILL" },
+    { "v": "BRAVE", "map": "OUT FROM THE GAME" },
+    { "v": "B", "map": "OUT FROM THE GAME" }
   ],
   "rooms": {
     "CAVE": {
-      "name": "Cave",
+      "name": "CAVE",
       "desc": "You woke up at the cave and faced against DeadWolve",
       "exits": [
         {
@@ -46,7 +36,7 @@
         },
         {
           "verb": "BRAVE",
-          "target": "OUT FROM THIS GAME",
+          "target": "OUT FROM THE GAME",
           "condition": "sword, hummer, gun, wood stick"
         }
       ],
@@ -63,7 +53,7 @@
         },
         {
           "verb": "KILL",
-          "target": "Cave",
+          "target": "CAVE",
           "condition": "hummer, gun, wood stick"
         },
         {
@@ -85,7 +75,7 @@
         },
         {
           "verb": "KILL",
-          "target": "Cave",
+          "target": "CAVE",
           "condition": "sword, gun, wood stick"
         },
         {
@@ -107,12 +97,12 @@
         },
         {
           "verb": "KILL",
-          "target": "Cave",
+          "target": "CAVE",
           "condition": "sword, gun, hummer"
         },
         {
           "verb": "BRAVE",
-          "target": "OUT FROM THIS GAME",
+          "target": "OUT FROM THE GAME",
           "condition": "wood stick"
         }
       ],
@@ -129,7 +119,7 @@
         },
         {
           "verb": "KILL",
-          "target": "Cave",
+          "target": "CAVE",
           "condition": "sword, hummer, wood stick"
         }
       ],
@@ -146,7 +136,7 @@
         },
         {
           "verb": "KILL",
-          "target": "Cave",
+          "target": "CAVE",
           "condition": "sword, gun, hummer"
         },
         {

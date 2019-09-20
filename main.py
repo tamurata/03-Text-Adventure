@@ -29,14 +29,14 @@ logger = logging.getLogger(__name__)
 
 def render(game,current):
     '''Display the current location'''
-    print('you are at the' + game['rooms'][current]['name'])
+    print('you are at the ' + game['rooms'][current]['name'])
     print(game['rooms'][current]['desc'])
     return True
 
-def update(game,current,response):
+def update(game,current,response,weapon):
     '''update our location, if possible, etc. '''
     for e in game['rooms'][current]['exits']:
-        if e['condition'] == '' or e['condition'] == weapon:
+        if e['condition'] == '' or weapon in e['condition']:
             if response == e['verb']:
                 current = e['target']
     
@@ -45,7 +45,7 @@ def update(game,current,response):
 
 def check_input():
     '''get user input'''
-    response = input('Do you want to run away or kill the monster? \nShow me your braveness.').upper().strip()
+    response = input('Do you want to run away or kill the monster? \nShow me your braveness. ').upper().strip()
     return response
 
 
@@ -71,8 +71,10 @@ def main():
         response = check_input()
         #update
         current = update(game,current,response,weapon)
+
         if current in ending:
-            quit == True
+            render(game,current)
+            quit = True
     
     
 
